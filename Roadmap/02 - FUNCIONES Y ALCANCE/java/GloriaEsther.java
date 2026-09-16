@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class GloriaEsther {
-   static int num;//variable global (no lo es como tal pero se puede usar de esa manera haciendo que la variable sea static)
+   static int num;//Variable global (no lo es como tal pero se puede usar de esa manera haciendo que la variable sea static)
    static float x;
    static float y;
    //Funcion sin retorno ni parametros
-    public static void Mensaje(){//las funciones se declaran como static si no se va a instanciar un objeto de la clase que pueda utilizar esto
+    public static void Mensaje(){//Las funciones se declaran como static si no se va a instanciar un objeto de la clase que pueda utilizar esto
         System.out.println("Esta es una funcion sin retorno ni parametros");
     }
     //Funcion con retorno y parametros
@@ -58,9 +58,8 @@ public class GloriaEsther {
 
     static String multiplosporTexto(String texto1,String texto2){
         int multiplos=0;
-        int veces_num=0;
-       // int i;//=0;
-        for(int i=1;i<=100;i++){//porque debe imprimir del 1 al 100
+        int recorrido=0;
+        for(int i=1;i<=100;i++){
             if(i%3==0){
                 System.out.println(texto1);
                 multiplos+=1;
@@ -76,22 +75,20 @@ public class GloriaEsther {
             if(!(i%3==0) && !(i%5==0)){
                 System.out.println(i);
             }
-            veces_num+=1;//Numero de veces que se hace un recorrido
+            recorrido+=1;
         }
         System.out.println(" ");
         System.out.println("Multiplos en total " + multiplos);
-        int resultado= veces_num - multiplos;
 
-        System.out.println("Num de veces que se imprimio el numero en lugar del texto = " + resultado);
-       
+        int resultado= recorrido - multiplos;  
         String str_resultado = Integer.toString(resultado);
 
-        return ""+str_resultado;
+        return str_resultado;
     }
 
     public static void main(String args[]){
-        num= 1000;//se asigno un valor a la variable global
-        String nombre="Gloria";//variable local
+        num= 1000;//Se asigno un valor a la variable global
+        String nombre="Gloria";//Variable local
         Mensaje();
         System.out.println("Este es el resultado de la funcion de suma con parametros: "+suma(num,3040,14));    
         saludarUsuario(nombre);
@@ -104,7 +101,8 @@ public class GloriaEsther {
         
         System.out.println("Ingresa otro texto: ");
         String cadena2=teclado.nextLine();
-        multiplosporTexto(cadena1, cadena2);
-
+        //multiplosporTexto(cadena1, cadena2);
+        
+        System.out.println("Num de veces que se imprimio el numero en lugar del texto = " + multiplosporTexto(cadena1, cadena2));
     }
 }
