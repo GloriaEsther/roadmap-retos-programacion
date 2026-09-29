@@ -15,15 +15,20 @@
  */
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.List;
+
 public class GloriaEsther {
-    //conjuntos: hashset y treeset
+   
+    /*
+     //conjuntos: hashset y treeset
     //map: hashamp y treemap
     //pilas y colas: stack, queque (cola),;
-    /*Lista enlazada
 Tablas Hash
 Pilas y Colas
 Grafos y Árboles */
+
     public static void main(String[] args) {
         Scanner teclado =new Scanner(System.in);
 
@@ -33,7 +38,7 @@ Grafos y Árboles */
         for( int i=0;i<Animales.length;i++){
             System.out.println("Ingresa un animal: ");
             String animal= teclado.next();
-            Animales[i]= animal;//luego checo repetidos
+            Animales[i]= animal;
         }   
         //Mostrar los elementos
         System.out.println("Esto estaba en el array: ");
@@ -42,18 +47,12 @@ Grafos y Árboles */
         }
         //Actualizacion
         Animales [0]="Pichon";
-        System.out.println(Animales[0]);
-
-        System.out.println("Esto estaba en el array actualizado: ");
-        for (String animal :Animales){
-            System.out.println(animal);
-        }
+        System.out.println("Nueva primera posicion del array: "+Animales[0]);
         //Otro ejemplo de actualizar es este:
         int Numeros[] ={6,2,3,5};
         Numeros[2]=7;
         System.out.println("Este numero estaba en la posicion 2 de este array: "+Numeros[2]);
-        //Ordenamientp
-        
+        //Ordenamiento de menor a mayor
         Arrays.sort(Numeros);
         for (int numero :Numeros){
             System.out.println(numero);
@@ -62,6 +61,7 @@ Grafos y Árboles */
         /*Listas
           Arraylist es para manejar datos de manera dinamica porque puede crecer de tamano tanto como se necesite 
         */
+
         ArrayList<String> lista_frutas = new ArrayList<>(Arrays.asList("Manzana", "Naranja"));
         //Tambien se puede declarar asi
         // ArrayList<String> lista_frutas = new ArrayList<String>(); o  ArrayList<String> lista_frutas = new ArrayList<>();
@@ -86,15 +86,27 @@ Grafos y Árboles */
         lista_frutas.add(1,"Mango"); 
         lista_frutas.set(3,"Tuna");
         //Recorrido
-        System.out.println("Arraylist actualizado(recorrido con for): ");
-        for (String fruta :lista_frutas){
-            System.out.println(fruta);
-        }
         System.out.println("Arraylist actualizado: "+lista_frutas);
-        
+
         //Linkedist
+        LinkedList<String> Personas = new LinkedList<>();
+        Personas.add("Natalia");
+        Personas.add("Roberto");
+        System.out.println("Linkedlist: "+Personas);
+        //Actualizacion
+        Personas.addFirst("Maria");
+        Personas.addLast("Fernando");   
+        System.out.println("Linkedlist actualizada: "+Personas);
+        
+        //Obtener
+        System.out.println("Primera posicion: "+Personas.getFirst());
+        System.out.println("Ultima posicion: "+Personas.getLast());
 
-
+        //Borrar
+        Personas.remove("Maria");
+        Personas.removeFirst();
+        Personas.removeLast();
+        System.out.println("Linkedlist actualizada: "+Personas);
     }
 
 
