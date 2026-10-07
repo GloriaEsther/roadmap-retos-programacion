@@ -16,14 +16,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.TreeSet;
-import java.util.List;
 
 public class GloriaEsther {
-   
     /*
     //map: hashamp y treemap
     //pilas y colas: stack, queque (cola),;
@@ -76,10 +76,6 @@ Grafos y Árboles */
         lista_frutas.add("Platano"); 
 
         //Recorrido antes de borrar y modificar
-        System.out.println("Arraylist(recorrido con for): ");
-        for (String fruta :lista_frutas){
-            System.out.println(fruta);
-        }
         System.out.println("Arraylist: " +lista_frutas);
         // Borrar (por índice)
         lista_frutas.remove(1); //Borraria Naranja
@@ -156,9 +152,48 @@ Grafos y Árboles */
         System.out.println("Treeset: "+numeros);
         //Borrar
         numeros.remove(5);
-        //Actualizar
-        
-    }
+        //No se puede actualizar como tal, solo se podria eliminar el dato instanciar un nuevo elemento y agregarlo
+       
+        //LinkedHashSet, es una lista de elementos pero recuerda el orden en que se agregaron
+        LinkedHashSet<String> flores = new LinkedHashSet<>();
+        flores.add("Rosa");
+        flores.add("Rosa");  // Duplicados los ignora
+        flores.add("Margarita");
+        flores.add("Girasol");
+        System.out.println("LinkedHashSet: "+flores);
+        flores.remove("Margarita");
+        System.out.println("LinkedHashSet actualizada: "+flores);
+        //No se puede actualizar com tal un valor 
+        /*La interface Map en java permite el uso de clave-valores en el cual la clave es unica pero los valores pueden ser duplicados
+        HashMap - rapido y desordenado
+        TreeMap - ordenado por clave
+        LinkedHashMap - recuerda el orden en que se agregaron los elementos
+        */
+       //HashMap puede tener combinaciones clave - valor como claves string y valores integer 
+        HashMap<String, String> capitales = new HashMap<String, String>();
 
+        // Agregar
+        capitales.put("Inglaterra", "Londres");
+        capitales.put("Mexico", "CDMX");
+        capitales.put("Austria", "Wien");
+        capitales.put("Noruega", "Oslo");
+        capitales.put("Noruega", "Oslo"); // EN caso de duplicados el ultimom valor sobreescribe el anterior
+        capitales.put("USA", "Washington DC");
+
+        System.out.println(capitales);
+        //Mostrar elementos(por clave)
+        capitales.get("Inglaterra");
+        //Borrar elementos (por clave)
+        capitales.remove("Inglaterra");
+        //y clave - valor
+        capitales.remove("Austria","Wien");
+        System.out.println(capitales);
+        //Se puede actualizar el valor pero no la clave ya que asi si se tendria que eliminar todo el elemento
+        capitales.put("Japon", "Washington DC");//esta mal al proposito
+         System.out.println("HashMap antes de actualizarse: "+capitales);
+        capitales.put("Japon", "Tokio");//actualizar
+        System.out.println("HashMap despues de actualizarse:"+capitales); 
+
+  }
 
 }
