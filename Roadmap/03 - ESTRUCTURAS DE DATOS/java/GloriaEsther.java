@@ -15,17 +15,18 @@
  */
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.TreeSet;
 import java.util.List;
 
 public class GloriaEsther {
    
     /*
-     //conjuntos: hashset y treeset
     //map: hashamp y treemap
     //pilas y colas: stack, queque (cola),;
-Tablas Hash
 Pilas y Colas
 Grafos y Árboles */
 
@@ -33,7 +34,7 @@ Grafos y Árboles */
         Scanner teclado =new Scanner(System.in);
 
         //Arreglos(array) es un conjunto de datos con tamano fijo y estatico
-        String Animales [] = new String[5];// ={"perro","vaca","gato","canario","paloma"};
+        String Animales [] = new String[5];
         //Insertar 
         for( int i=0;i<Animales.length;i++){
             System.out.println("Ingresa un animal: ");
@@ -54,6 +55,8 @@ Grafos y Árboles */
         System.out.println("Este numero estaba en la posicion 2 de este array: "+Numeros[2]);
         //Ordenamiento de menor a mayor
         Arrays.sort(Numeros);
+        
+        System.out.println("Array de numeros ");
         for (int numero :Numeros){
             System.out.println(numero);
         }
@@ -87,6 +90,11 @@ Grafos y Árboles */
         lista_frutas.set(3,"Tuna");
         //Recorrido
         System.out.println("Arraylist actualizado: "+lista_frutas);
+        // Ordenar
+        Collections.sort(lista_frutas); // alfabeticamente o en orden ascendente 
+        System.out.println(lista_frutas);
+        Collections.sort(lista_frutas, Collections.reverseOrder());// alfabeticamente en reversa o en orden ascendente 
+        System.out.println(lista_frutas);
 
         //Linkedist
         LinkedList<String> Personas = new LinkedList<>();
@@ -101,12 +109,55 @@ Grafos y Árboles */
         //Obtener
         System.out.println("Primera posicion: "+Personas.getFirst());
         System.out.println("Ultima posicion: "+Personas.getLast());
+        // Ordenar
+        Collections.sort(Personas); // alfabeticamente o en orden ascendente 
+        System.out.println(Personas);
+        Collections.sort(Personas, Collections.reverseOrder());// alfabeticamente en reversa o en orden ascendente 
+        System.out.println(Personas);
 
         //Borrar
         Personas.remove("Maria");
         Personas.removeFirst();
         Personas.removeLast();
         System.out.println("Linkedlist actualizada: "+Personas);
+        //HashSet
+        //Es una coleccion de objetos unicos
+
+        HashSet<String> cars = new HashSet<String>();
+        //Agregar
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("BMW");  // Si hay un dato duplicado solo parece una vez
+        cars.add("Mazda");
+        //Obtener datos
+        System.out.println("Hashset: "+cars);
+        
+        //Borrar
+        cars.remove("Volvo");
+        //Esto es para vaciar el Hashset:cars.clear();
+
+        //No se puede actualizar como tal porque tiene objetos unicos y sin orden pero se puede simular
+        if(cars.contains("Mazda")){ //revisar si existe un elemento en un hashset
+            cars.remove("Mazda");
+            cars.add("Ferrari"); 
+        }
+         System.out.println("Hashset actualizado: "+cars);
+
+        //Treeset es una coleccion de objetos unicos pero con un orden
+        TreeSet<Integer> numeros = new TreeSet<>();
+        //Agregar
+        numeros.add(10);
+        numeros.add(5);
+        numeros.add(1);
+        numeros.add(100);
+        numeros.add(70);
+        //Obtener
+        System.out.println("Treeset: "+numeros);
+        //Borrar
+        numeros.remove(5);
+        //Actualizar
+        
     }
 
 
