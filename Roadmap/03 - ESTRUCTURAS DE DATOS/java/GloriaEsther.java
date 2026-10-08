@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class GloriaEsther {
@@ -194,6 +195,38 @@ Grafos y Árboles */
         capitales.put("Japon", "Tokio");//actualizar
         System.out.println("HashMap despues de actualizarse:"+capitales); 
 
+        //TreeMap
+        TreeMap<String, String> paises = new TreeMap<>();
+        //Agregar
+        paises.put("Europa", "Francia");
+        paises.put("Europa", "Francia");//Noruega
+        paises.put("E", "Francia");
+        paises.put("Asia", "Filipinas");
+        paises.put("Asia", "China");
+        paises.put("America", "Mexico");
+        paises.put("Africa", "Mexico");
+
+        //Un treeMap no permite claves repetidas, es mas las ignora pero si acepta valores duplicados
+        System.out.println("TreeMap: "+paises);
+        //Acceder a un objeto en especifico por clave
+        System.out.println(paises.get("America"));
+        //Borrar
+        paises.remove("Europa");//por clave
+        // paises.remove("Asia","Filipinas");//por clave-valor
+        System.out.println("TreeMap: "+paises);
+        //Actualizar
+        paises.replace("Africa", "Nigeria");
+        System.out.println("TreeMap actualizado: "+paises); 
+        //Ordenar
+        System.out.println(paises.descendingKeySet());//Mostrar las claves en orden descendiente
+        System.out.println(paises.descendingMap());//Lo mismo pero tambien muestra su valor
+
+        //LinkedHashMap
+        
+        
+
+
   }
+
 
 }
