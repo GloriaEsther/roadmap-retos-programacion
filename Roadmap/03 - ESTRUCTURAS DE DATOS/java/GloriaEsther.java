@@ -1,8 +1,4 @@
 /*
- * EJERCICIO:
- * - Muestra ejemplos de creación de todas las estructuras soportadas por defecto en tu lenguaje.
- * - Utiliza operaciones de inserción, borrado, actualización y ordenación.
- *
  * DIFICULTAD EXTRA (opcional):
  * Crea una agenda de contactos por terminal.
  * - Debes implementar funcionalidades de búsqueda, inserción, actualización y eliminación de contactos.
@@ -24,10 +20,10 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Iterator;
 
 public class GloriaEsther {
     /*
-    //map: hashamp y treemap
     //pilas y colas: stack, queque (cola),;
 Pilas y Colas
 Grafos y Árboles */
@@ -135,6 +131,7 @@ Grafos y Árboles */
         cars.add("Ford");
         cars.add("BMW");  // Si hay un dato duplicado solo parece una vez
         cars.add("Mazda");
+        cars.add("Lamborgini");
         //Obtener datos
         System.out.println("Hashset: "+cars);
         
@@ -147,9 +144,37 @@ Grafos y Árboles */
             cars.add("Ferrari"); 
         }
         System.out.println("Hashset actualizado: "+cars);
+        
+        //Iterador 
+        //Sirve para iterar en colecciones como arraylist y hashset (no funciona en colecciones clave-valor)
+        Iterator<String> it = cars.iterator();
+       // System.out.println("Esto muestra el recorrido de un iterador en un hashset");
+        while(it.hasNext()) {
+         //System.out.println(it.next());
+          String carro =it.next();
+         if(carro.equals("Ford")){
+            it.remove();
+         }
+        }
+        System.out.println("HashSet: "+cars);
         //Esto es para vaciar el Hashset:cars.clear();
         cars.clear();
         System.out.println(cars);
+        //Esto es otro ejemplo de iterador pero con un arraylist de numeros
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        num.add(12);
+        num.add(8);
+        num.add(2);
+        num.add(23);
+        Iterator<Integer> has = num.iterator();
+        while(has.hasNext()) {
+        Integer i = has.next();
+        if(i < 10) {
+            has.remove();
+        }
+        }
+        System.out.println(num);
+        num.clear();
 
         //Treeset es una coleccion de objetos unicos pero con un orden
         TreeSet<Integer> numeros = new TreeSet<>();
@@ -262,9 +287,18 @@ Grafos y Árboles */
         //Limpiar
         Persona.clear();
         System.out.println("LinkedHashMap: "+Persona);
+        //Algorithm es una herramienta de collection para ordenar, buscar y manipular datos
+        //Ejemplo:
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Liam");
+        names.add("Jenny");
+        names.add("Kasper");
+        names.add("Angie");
 
+        Collections.sort(names); // Los ordena primero
+        int index = Collections.binarySearch(names, "Angie");//luego busca
+        System.out.println("Angie esta en el indice: " + index);
 
   }
-
 
 }
