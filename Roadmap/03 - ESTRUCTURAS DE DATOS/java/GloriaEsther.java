@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -92,12 +93,16 @@ Grafos y Árboles */
         System.out.println(lista_frutas);
         Collections.sort(lista_frutas, Collections.reverseOrder());// alfabeticamente en reversa o en orden ascendente 
         System.out.println(lista_frutas);
+        //Esto es para limpiar y borrar todo
+        lista_frutas.clear();
+        System.out.println(lista_frutas);
 
         //Linkedist
         LinkedList<String> Personas = new LinkedList<>();
         Personas.add("Natalia");
         Personas.add("Roberto");
         System.out.println("Linkedlist: "+Personas);
+
         //Actualizacion
         Personas.addFirst("Maria");
         Personas.addLast("Fernando");   
@@ -117,9 +122,12 @@ Grafos y Árboles */
         Personas.removeFirst();
         Personas.removeLast();
         System.out.println("Linkedlist actualizada: "+Personas);
+        //Borrar todo
+        Personas.clear();
+        System.out.println(Personas);
+
         //HashSet
         //Es una coleccion de objetos unicos
-
         HashSet<String> cars = new HashSet<String>();
         //Agregar
         cars.add("Volvo");
@@ -132,14 +140,16 @@ Grafos y Árboles */
         
         //Borrar
         cars.remove("Volvo");
-        //Esto es para vaciar el Hashset:cars.clear();
-
+       
         //No se puede actualizar como tal porque tiene objetos unicos y sin orden pero se puede simular
         if(cars.contains("Mazda")){ //revisar si existe un elemento en un hashset
             cars.remove("Mazda");
             cars.add("Ferrari"); 
         }
-         System.out.println("Hashset actualizado: "+cars);
+        System.out.println("Hashset actualizado: "+cars);
+        //Esto es para vaciar el Hashset:cars.clear();
+        cars.clear();
+        System.out.println(cars);
 
         //Treeset es una coleccion de objetos unicos pero con un orden
         TreeSet<Integer> numeros = new TreeSet<>();
@@ -153,6 +163,7 @@ Grafos y Árboles */
         System.out.println("Treeset: "+numeros);
         //Borrar
         numeros.remove(5);
+        numeros.clear();
         //No se puede actualizar como tal, solo se podria eliminar el dato instanciar un nuevo elemento y agregarlo
        
         //LinkedHashSet, es una lista de elementos pero recuerda el orden en que se agregaron
@@ -164,10 +175,12 @@ Grafos y Árboles */
         System.out.println("LinkedHashSet: "+flores);
         flores.remove("Margarita");
         System.out.println("LinkedHashSet actualizada: "+flores);
-        //No se puede actualizar com tal un valor 
+        //No se puede actualizar como tal un valor 
+        flores.clear();
+        System.out.println(flores);
         /*La interface Map en java permite el uso de clave-valores en el cual la clave es unica pero los valores pueden ser duplicados
         HashMap - rapido y desordenado
-        TreeMap - ordenado por clave
+        TreeMap - ordenado por clave y aparte su estruc es la de un arbol binario
         LinkedHashMap - recuerda el orden en que se agregaron los elementos
         */
        //HashMap puede tener combinaciones clave - valor como claves string y valores integer 
@@ -180,20 +193,25 @@ Grafos y Árboles */
         capitales.put("Noruega", "Oslo");
         capitales.put("Noruega", "Oslo"); // EN caso de duplicados el ultimom valor sobreescribe el anterior
         capitales.put("USA", "Washington DC");
-
         System.out.println(capitales);
+
         //Mostrar elementos(por clave)
         capitales.get("Inglaterra");
+
         //Borrar elementos (por clave)
         capitales.remove("Inglaterra");
+
         //y clave - valor
         capitales.remove("Austria","Wien");
         System.out.println(capitales);
+
         //Se puede actualizar el valor pero no la clave ya que asi si se tendria que eliminar todo el elemento
         capitales.put("Japon", "Washington DC");//esta mal al proposito
-         System.out.println("HashMap antes de actualizarse: "+capitales);
+        System.out.println("HashMap antes de actualizarse: "+capitales);
         capitales.put("Japon", "Tokio");//actualizar
         System.out.println("HashMap despues de actualizarse:"+capitales); 
+        capitales.clear();
+        System.out.println(capitales);
 
         //TreeMap
         TreeMap<String, String> paises = new TreeMap<>();
@@ -220,10 +238,30 @@ Grafos y Árboles */
         //Ordenar
         System.out.println(paises.descendingKeySet());//Mostrar las claves en orden descendiente
         System.out.println(paises.descendingMap());//Lo mismo pero tambien muestra su valor
+        paises.clear();
+        System.out.println(paises);
 
         //LinkedHashMap
+        LinkedHashMap<String, String> Persona = new LinkedHashMap<>();
+        Persona.put("Marco", "Ruiz");
+        Persona.put("Maria", "Perez");        
+        Persona.put("Maria", "Perez");
+        Persona.put("Vicente", "Chavez");
+        Persona.put("Victoria", "Martinez");
+        System.out.println("LinkedHashMap: "+Persona);
         
+        //Acceder a un objeto en especifico por clave
+        System.out.println(Persona.get("Maria"));
+        //Borrar
+        Persona.remove("Marco");
+        //Actualizar
+        Persona.replace("Marco", "Ruiz Gonzalez");
         
+        System.out.println("LinkedHashMap actualizada: "+Persona);
+        //Ordena en el orden en que se agregan los elementos
+        //Limpiar
+        Persona.clear();
+        System.out.println("LinkedHashMap: "+Persona);
 
 
   }
