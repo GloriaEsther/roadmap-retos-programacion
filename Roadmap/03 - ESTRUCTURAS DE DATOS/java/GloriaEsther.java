@@ -1,14 +1,3 @@
-/*
- * DIFICULTAD EXTRA (opcional):
- * Crea una agenda de contactos por terminal.
- * - Debes implementar funcionalidades de búsqueda, inserción, actualización y eliminación de contactos.
- * - Cada contacto debe tener un nombre y un número de teléfono.
- * - El programa solicita en primer lugar cuál es la operación que se quiere realizar, y a continuación
- *   los datos necesarios para llevarla a cabo.
- * - El programa no puede dejar introducir números de teléfono no numéricos y con más de 11 dígitos.
- *   (o el número de dígitos que quieras)
- * - También se debe proponer una operación de finalización del programa.
- */
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -299,6 +288,98 @@ Grafos y Árboles */
         int index = Collections.binarySearch(names, "Angie");//luego busca
         System.out.println("Angie esta en el indice: " + index);
 
+        agenda();
+  }
+  /*extra */
+  /*
+ * DIFICULTAD EXTRA (opcional):
+ * Crea una agenda de contactos por terminal.
+ * - Debes implementar funcionalidades de búsqueda, actualización y eliminación de contactos.
+ * - El programa solicita en primer lugar cuál es la operación que se quiere realizar, y a continuación
+ *   los datos necesarios para llevarla a cabo.
+ * - El programa no puede dejar introducir números de teléfono no numéricos y con más de 11 dígitos.
+ *   (o el número de dígitos que quieras)
+ * - También se debe proponer una operación de finalización del programa.
+ */
+
+  static void agenda(){
+    HashMap<String, String> contactos = new HashMap<String,String>();//HashMap<String, Integer>
+    Scanner op =new Scanner(System.in);
+    int opcion;
+
+    while(true){
+        System.out.println("Eliga una opcion: ");
+        System.out.println("1.Agregar contacto");
+        System.out.println("2.Eliminar contacto");
+        System.out.println("3.Actualizar contacto");
+        System.out.println("4.Buscar contacto");
+        System.out.println("5.Salir");
+        opcion = op.nextInt();
+        
+        Scanner teclado =new Scanner(System.in);
+
+        switch (opcion) {
+            case 1:
+                
+                System.out.println("Agregar contacto");
+                System.out.println("Ingrese un nombre");
+                String nombre = teclado.next();
+
+                System.out.println("Ingrese un numero");
+                String  num_telefono = teclado.next();
+                if (num_telefono.length()>11){
+                    System.out.println("Tiene mas de 11 digitos, intentelo de nuevo");
+                    break;
+                }
+                contactos.put(nombre, num_telefono);
+                System.out.println(contactos);
+
+            break;
+            case 2:
+                System.out.println("Eliminar contacto");
+                System.out.println("Ingrese un nombre");
+                String nombre_ = teclado.next();
+
+                contactos.remove(nombre_);
+                System.out.println(contactos);
+                
+            break;
+            case 3:
+                System.out.println("Actualizar contacto");
+                /*Aqui pienso pedir un nombre para buscar y si es que existe 
+                preguntar que se quiere actualizar si el nombre o el telefono
+                con el metodo replace o el otro */
+                
+                System.out.println(contactos);
+            break;
+            case 4:
+                
+                System.out.println("Buscar contacto");
+                System.out.println("Ingrese un nombre");
+                String buscar_nombre = teclado.next();
+                if(contactos.containsKey(buscar_nombre)){
+                  System.out.println(contactos.get(buscar_nombre));//solo mostraria el numero 
+                }else{
+                    System.out.println("Este contacto no existe");
+                }
+
+                /*// Print keys and values
+for (String i : capitalCities.keySet()) {
+  System.out.println("key: " + i + " value: " + capitalCities.get(i));
+} */
+                /*Aqui pienso pedir nombre y recorrer el hash si existe la clave nombre entonces que aparezca y lo muestre en terminal */
+            break;
+            case 5:
+                
+                System.out.println("Bye :)");
+                
+                
+            break;
+            default:
+                break;
+        }
+    }
+    
   }
 
 }
