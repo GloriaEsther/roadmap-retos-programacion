@@ -294,7 +294,7 @@ Grafos y Árboles */
   /*
  * DIFICULTAD EXTRA (opcional):
  * Crea una agenda de contactos por terminal.
- * - Debes implementar funcionalidades de búsqueda, actualización y eliminación de contactos.
+ * - Debes implementar funcionalidades de búsqueda, insercion, actualización y eliminación de contactos.
  * - El programa solicita en primer lugar cuál es la operación que se quiere realizar, y a continuación
  *   los datos necesarios para llevarla a cabo.
  * - El programa no puede dejar introducir números de teléfono no numéricos y con más de 11 dígitos.
@@ -306,8 +306,9 @@ Grafos y Árboles */
     HashMap<String, String> contactos = new HashMap<String,String>();//HashMap<String, Integer>
     Scanner op =new Scanner(System.in);
     int opcion;
+    boolean activo=true;
 
-    while(true){
+    while(activo){
         System.out.println("Eliga una opcion: ");
         System.out.println("1.Agregar contacto");
         System.out.println("2.Eliminar contacto");
@@ -346,34 +347,33 @@ Grafos y Árboles */
             break;
             case 3:
                 System.out.println("Actualizar contacto");
-                /*Aqui pienso pedir un nombre para buscar y si es que existe 
-                preguntar que se quiere actualizar si el nombre o el telefono
-                con el metodo replace o el otro */
-                
+                System.out.println("Ingrese un nombre");
+                String buscar_nom = teclado.next();
+                if(contactos.containsKey(buscar_nom)){
+                    System.out.println("Nombre: " + buscar_nom + " Telefono: " + contactos.get(buscar_nom));
+                    System.out.println("Ingrese el nuevo numero de telefono : ");
+                    String tel=teclado.next();
+                    contactos.replace(buscar_nom, tel);
+                }else{
+                    System.out.println("Este contacto no existe"); 
+                }
                 System.out.println(contactos);
             break;
             case 4:
-                
                 System.out.println("Buscar contacto");
                 System.out.println("Ingrese un nombre");
                 String buscar_nombre = teclado.next();
                 if(contactos.containsKey(buscar_nombre)){
-                  System.out.println(contactos.get(buscar_nombre));//solo mostraria el numero 
+                   System.out.println("Nombre: " + buscar_nombre + " Telefono: " + contactos.get(buscar_nombre));
+                   
                 }else{
                     System.out.println("Este contacto no existe");
+                    
                 }
-
-                /*// Print keys and values
-for (String i : capitalCities.keySet()) {
-  System.out.println("key: " + i + " value: " + capitalCities.get(i));
-} */
-                /*Aqui pienso pedir nombre y recorrer el hash si existe la clave nombre entonces que aparezca y lo muestre en terminal */
             break;
-            case 5:
-                
+            case 5:      
                 System.out.println("Bye :)");
-                
-                
+                activo=false;
             break;
             default:
                 break;
