@@ -14,8 +14,8 @@ import java.util.Iterator;
 public class GloriaEsther {
     /*
     //pilas y colas: stack, queque (cola),;
-Pilas y Colas
-Grafos y Árboles */
+    Pilas y Colas
+    Grafos y Árboles */
 
     public static void main(String[] args) {
         Scanner teclado =new Scanner(System.in);
@@ -291,17 +291,6 @@ Grafos y Árboles */
         agenda();
   }
   /*extra */
-  /*
- * DIFICULTAD EXTRA (opcional):
- * Crea una agenda de contactos por terminal.
- * - Debes implementar funcionalidades de búsqueda, insercion, actualización y eliminación de contactos.
- * - El programa solicita en primer lugar cuál es la operación que se quiere realizar, y a continuación
- *   los datos necesarios para llevarla a cabo.
- * - El programa no puede dejar introducir números de teléfono no numéricos y con más de 11 dígitos.
- *   (o el número de dígitos que quieras)
- * - También se debe proponer una operación de finalización del programa.
- */
-
   static void agenda(){
     HashMap<String, String> contactos = new HashMap<String,String>();//HashMap<String, Integer>
     Scanner op =new Scanner(System.in);
